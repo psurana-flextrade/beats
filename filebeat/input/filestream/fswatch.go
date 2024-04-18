@@ -318,6 +318,8 @@ func (s *fileScanner) GetFiles() map[string]os.FileInfo {
 	pathInfo := map[string]os.FileInfo{}
 	uniqFileID := map[string]os.FileInfo{}
 
+	s.log.Errorf("Scanning for files in %v", s.paths)
+
 	for _, path := range s.paths {
 		matches, err := filepath.Glob(path)
 		if err != nil {
