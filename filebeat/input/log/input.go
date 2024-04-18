@@ -630,7 +630,8 @@ func (p *Input) harvestExistingFile(logger *logp.Logger, newState file.State, ol
 // Based on the state information it is decided if the state information has to be updated or not
 func (p *Input) handleIgnoreOlder(logger *logp.Logger, isNewState bool, newState file.State) error {
 	logger.Debugf("Ignore file because ignore_older reached: %s", newState.Source)
-
+	logger.Errorf("in Input HandleIgnoreOlder")
+	logger.Debugf("in Input HandleIgnoreOlder")
 	if !isNewState {
 		lastState := p.states.FindPrevious(newState)
 		if !lastState.Finished {

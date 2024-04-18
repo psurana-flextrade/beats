@@ -221,6 +221,8 @@ func (p *fileProspector) isFileIgnored(log *logp.Logger, fe loginp.FSEvent, igno
 		now := time.Now()
 		if now.Sub(fe.Info.ModTime()) > p.ignoreOlder {
 			log.Debugf("Ignore file because ignore_older reached. File %s", fe.NewPath)
+			log.Errorf("in Prospector isFileIgnored")
+			log.Debugf("in Prospector isFileIgnored")
 			return true
 		}
 	}
